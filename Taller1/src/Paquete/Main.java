@@ -28,8 +28,28 @@ public class Main {
             try {
                 int opcion = Integer.valueOf(sc.nextLine());
 
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Test opcion 1");
+                        break;
+
+                    case 2:
+                        System.out.println("Test opcion 2");
+                        break;
+
+                    case 3:
+                        System.out.println("Adios");
+                        x++;
+                        break;
+
+                    default:
+                        System.out.println("Opcion no valida, intente de nuevo");
+                        break;
+                }
+
             } catch (Exception e) {
-                System.out.println("Por favor ingrese un numero valido");
+                System.out.println();
+                System.out.println("Por favor ingrese un numero");
             }
         } while (x == 0);
     }

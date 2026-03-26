@@ -53,7 +53,7 @@ public class Main {
                         break;
 
                     case 2:
-                        System.out.println("Test opcion 2");
+                        System.out.println("Test opcion 2"); //para el menu nececito que puedas cargar bien el archivo
 
 
                         break;

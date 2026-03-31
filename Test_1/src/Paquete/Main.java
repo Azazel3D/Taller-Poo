@@ -6,14 +6,40 @@ import java.util.Scanner;
 
 
 public class Main {
+	
+	public static void menuUno() {
+		
+		System.out.println();
+		
+		System.out.println("1) Menu de Usuarios");
+		System.out.println("2) Menu de Analisis");
+		System.out.println("3) Salir");
+		System.out.print("> ");
+	}
 
+	public static void menuDos() {
+		System.out.println();
+        System.out.println("Que desea realizar?");
+        System.out.println();
+		System.out.println("1) Registrar actividad.");
+        System.out.println("2) Modificar actividad.");
+        System.out.println("3) Eliminar actividad.");
+        System.out.println("4) Cambiar contraseña.");
+        System.out.println("5) Salir.");
+        System.out.print("> ");
+	}
+	
     public static void main(String[] args) throws FileNotFoundException {
+
+		int a = 0;
 
         File usuarios = new File("Taller-Poo/Test_1/src/archivos/Usuarios.txt");
 
         File registros = new File("Taller-Poo/Test_1/src/archivos/Registros.txt");
 
         Scanner sc = new Scanner(System.in);
+
+		String contrtaseña = "";
 
         int x = 0;
 
@@ -22,12 +48,7 @@ public class Main {
         do {
 			if (usuarioCorrecto == "") {
 
-				System.out.println();
-            
-            	System.out.println("1) Menu de Usuarios");
-            	System.out.println("2) Menu de Analisis");
-            	System.out.println("3) Salir");
-            	System.out.print("> ");
+				menuUno();
 
 				
 				try {
@@ -40,6 +61,7 @@ public class Main {
                     	case 1:
                         	System.out.print("Usuario: ");
                         	String usuario = sc.nextLine();
+							usuario = usuario.toLowerCase();
                         	System.out.print("");
 
                         	System.out.print("Contraseña: ");
@@ -54,11 +76,13 @@ public class Main {
                         	String[] part = line.split(";");
                         	
                         	String user = part[0];
+							user = user.toLowerCase();
                         	String contra = part[1];
                         	
                         	
                         	if (user.equals(usuario) && password.equals(contra)) {
                         		usuarioCorrecto = user;
+								contrtaseña = contra;
 								break;
 							}
 						}
@@ -89,18 +113,13 @@ public class Main {
 					
 
 			}else {
-				System.out.println("Acceso correcto!");
-                    System.out.println();
-                    System.out.println("Bienvenido "+ usuarioCorrecto);
-                    System.out.println();
-                    System.out.println("Que desea realizar?");
-                    System.out.println();
-                    System.out.println("1) Registrar actividad.");
-                    System.out.println("2) Modificar actividad.");
-                    System.out.println("3) Eliminar actividad.");
-                    System.out.println("4) Cambiar contraseña.");
-                    System.out.println("5) Salir.");
-                    System.out.print("> ");
+				if (a == 0) {
+					System.out.println("Acceso correcto!");
+					System.out.println();
+					System.out.println("Bienvenido "+ usuarioCorrecto);
+					a++;
+				}
+                menuDos();
 
 					try {
 						int opcion = Integer.valueOf(sc.nextLine());
@@ -109,13 +128,13 @@ public class Main {
 
 						switch (opcion) {
 
-							case 1:
+							case 1: //registrar acticidad | trabajandose
 								
 								System.out.println("Test 1");
 
 								break;
 
-							case 2:
+							case 2: //modificar actividad | trabajandose
 
                         		System.out.println("Cual actividad desea modificar?");
                         		System.out.println();
@@ -145,17 +164,41 @@ public class Main {
 
 								break;
 							
-							case 3:
+							case 3: //eliminar actividad
 								System.out.println("Test 3");
 
 								break;
 
 
-							case 4:
-								System.out.println("Test 4");
+							case 4: //cambiar contraseña | trabajandose
+							
+							int y =	 0;
+							do { 
+									System.out.println("Desea cambiar la contraseña? (s/n)");
+									String respuesta = sc.nextLine();
+									respuesta = respuesta.toLowerCase();
+
+									if (respuesta.equals("s")) {
+										System.out.println("Ingrese la nueva contraseña: ");
+										System.out.print("> ");
+										String nuevaContra = sc.nextLine();
+
+										
+
+										y++;
+									}else if (respuesta.equals("n")) {
+										System.out.println("Contraseña no cambiada");
+										y++;
+
+									} else {
+										System.out.println("Ingrese una respuesta valida");
+										System.out.println();
+									}
+								} while (y == 0);
+								
 								break;
 
-							case 5:
+							case 5: //salir | listo
 								System.out.println("Adios!");
 								x++;
 								break;

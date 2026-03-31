@@ -2,6 +2,7 @@ package Paquete;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 
@@ -76,15 +77,15 @@ public class Main {
                         	String[] part = line.split(";");
                         	
                         	String user = part[0];
-							user = user.toLowerCase();
                         	String contra = part[1];
                         	
                         	
-                        	if (user.equals(usuario) && password.equals(contra)) {
+                        	if (user.toLowerCase().equals(usuario.toLowerCase()) && password.equals(contra)) {
                         		usuarioCorrecto = user;
 								contrtaseña = contra;
 								break;
 							}
+							lector.close();
 						}
 						
 						case 2:
@@ -183,9 +184,28 @@ public class Main {
 										System.out.print("> ");
 										String nuevaContra = sc.nextLine();
 
-										
+										FileWriter creador = new FileWriter("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
+										Scanner lector = new Scanner(usuarios);
 
+										while (lector.hasNextLine()) {
+											String linea = lector.nextLine();
+											String[] part = linea.split(";");
+
+											if (part[0].equals(usuarioCorrecto)) {
+												creador.write(part[0] + ";" + nuevaContra + "\n");
+										} else {
+												creador.write(linea + "\n");
+											}
+
+										}
+										creador.close();
+										lector.close();
+
+
+										System.out.println("Contraseña cambiada con exito!");
+										contrtaseña = nuevaContra;
 										y++;
+
 									}else if (respuesta.equals("n")) {
 										System.out.println("Contraseña no cambiada");
 										y++;

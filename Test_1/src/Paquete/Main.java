@@ -47,7 +47,7 @@ public class Main {
         String usuarioCorrecto = "";
         
         do {
-			if (usuarioCorrecto == "") {
+			if (usuarioCorrecto.equals("")) {
 
 				menuUno();
 
@@ -185,22 +185,31 @@ public class Main {
 										String nuevaContra = sc.nextLine();
 
 										FileWriter creador = new FileWriter("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
+										
 										Scanner lector = new Scanner(usuarios);
-
+										
 										while (lector.hasNextLine()) {
 											String linea = lector.nextLine();
 											String[] part = linea.split(";");
-
+											
 											if (part[0].equals(usuarioCorrecto)) {
-												creador.write(part[0] + ";" + nuevaContra + "\n");
-										} else {
-												creador.write(linea + "\n");
+												creador.write(part[0] + ";" + nuevaContra);
+											} else {
+												creador.write(linea);
 											}
-
+											
+											if (lector.hasNextLine()) {
+												creador.write("\n");
+											}
+											
 										}
 										creador.close();
 										lector.close();
 
+										File temp = new File("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
+										
+										usuarios.delete();
+										temp.renameTo(usuarios);
 
 										System.out.println("Contraseña cambiada con exito!");
 										contrtaseña = nuevaContra;

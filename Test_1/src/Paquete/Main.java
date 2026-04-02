@@ -50,6 +50,8 @@ public class Main {
         do {
 			if (usuarioCorrecto.equals("")) {
 
+				
+
 				menuUno();
 
 				
@@ -86,8 +88,8 @@ public class Main {
 								contrtaseña = contra;
 								break;
 							}
-							lector.close();
 						}
+						lector.close();
 						
 						case 2:
 							System.out.println("Primero inicie session");
@@ -136,7 +138,7 @@ public class Main {
 
 								break;
 
-							case 2: //modificar actividad | trabajandose
+							case 2: //modificar actividad | TERMINE!!!!!
 
                         		System.out.println("Cual actividad desea modificar?");
                         		System.out.println();
@@ -205,22 +207,24 @@ public class Main {
 											}
 											
 										}
+
 										creador.close();
 										lector.close();
 										
 										File temp = new File("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
 										
-										if (usuarios.delete()) {
+										if (usuarios.delete() && temp.renameTo(usuarios)) {
 
-											temp.renameTo(usuarios);
+											System.out.println("Contraseña cambiada con exito!");
+											contrtaseña = nuevaContra;
+											y++;
+
 										} else {
 
 											System.out.println("Error al actualizar la contraseña.");
 										}
 										
-										System.out.println("Contraseña cambiada con exito!");
-										contrtaseña = nuevaContra;
-										y++;
+										
 										
 									}else if (respuesta.equals("n")) {
 										System.out.println("Contraseña no cambiada");
@@ -234,7 +238,7 @@ public class Main {
 								
 								break;
 
-								case 5: //cerrar session | trabajandose
+								case 5: //cerrar session | Listo
 								
 								usuarioCorrecto = "";
 								contrtaseña = "";

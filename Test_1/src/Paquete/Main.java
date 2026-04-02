@@ -138,7 +138,7 @@ public class Main {
 
 								break;
 
-							case 2: //modificar actividad | TERMINE!!!!!
+							case 2: //modificar actividad trabajandose
 
                         		System.out.println("Cual actividad desea modificar?");
                         		System.out.println();
@@ -169,12 +169,35 @@ public class Main {
 								break;
 							
 							case 3: //eliminar actividad
-								System.out.println("Test 3");
+								
+								System.out.println("Registros de "+ usuarioCorrecto);
+								System.out.println("----------------");
+								
+								Scanner lectorRegistros = new Scanner(registros);
+
+								while (lectorRegistros.hasNextLine()) {
+									String linea = lectorRegistros.nextLine();
+									String[] part = linea.split(";");
+
+									if (part[0].equals(usuarioCorrecto)) {
+										System.out.println(linea);
+									}
+								}
+
+								lectorRegistros.close();
+								
+								System.out.println("Cual desea eliminar? (Fecha)");
+
+								String fecha = sc.nextLine();
+
+								
+
+
 
 								break;
 
 
-							case 4: //cambiar contraseña | trabajandose
+							case 4: //cambiar contraseña | LISTO!
 							
 							int y =	 0;
 							do { 

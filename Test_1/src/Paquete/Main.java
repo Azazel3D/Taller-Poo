@@ -26,7 +26,8 @@ public class Main {
         System.out.println("2) Modificar actividad.");
         System.out.println("3) Eliminar actividad.");
         System.out.println("4) Cambiar contraseña.");
-        System.out.println("5) Salir.");
+        System.out.println("5) Cerrar session.");
+		System.out.println("6) Salir.");
         System.out.print("> ");
 	}
 	
@@ -184,6 +185,7 @@ public class Main {
 										System.out.print("> ");
 										String nuevaContra = sc.nextLine();
 
+										
 										FileWriter creador = new FileWriter("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
 										
 										Scanner lector = new Scanner(usuarios);
@@ -205,16 +207,21 @@ public class Main {
 										}
 										creador.close();
 										lector.close();
-
+										
 										File temp = new File("Taller-Poo/Test_1/src/archivos/tempUsuarios.txt");
 										
-										usuarios.delete();
-										temp.renameTo(usuarios);
+										if (usuarios.delete()) {
 
+											temp.renameTo(usuarios);
+										} else {
+
+											System.out.println("Error al actualizar la contraseña.");
+										}
+										
 										System.out.println("Contraseña cambiada con exito!");
 										contrtaseña = nuevaContra;
 										y++;
-
+										
 									}else if (respuesta.equals("n")) {
 										System.out.println("Contraseña no cambiada");
 										y++;
@@ -227,7 +234,15 @@ public class Main {
 								
 								break;
 
-							case 5: //salir | listo
+								case 5: //cerrar session | trabajandose
+								
+								usuarioCorrecto = "";
+								contrtaseña = "";
+								System.out.println("Session cerrada");
+								
+								break;
+
+							case 6: //salir | listo
 								System.out.println("Adios!");
 								x++;
 								break;

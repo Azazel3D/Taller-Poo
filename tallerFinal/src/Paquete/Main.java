@@ -393,7 +393,7 @@ private static void change() {
 												String actividad = sc.nextLine();
 												
 
-												FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+												FileWriter creador = new FileWriter("tempRegistros.txt");
 												Scanner lector = new Scanner(registros);
 												
 												while (lector.hasNextLine()) {
@@ -404,7 +404,7 @@ private static void change() {
 												creador.close();
 												lector.close();
 												
-												File tempRegistros = new File("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+												File tempRegistros = new File("tempRegistros.txt");
 
 												if (registros.delete() && tempRegistros.renameTo(registros)) {
 													System.out.println("Actividad registrada con exito!");
@@ -489,7 +489,7 @@ private static void change() {
 
 											String fecha = sc3.nextLine();
 
-											FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											FileWriter creador = new FileWriter("tempRegistros.txt");
 											Scanner lectura3_0 = new Scanner(registros);
 											int cont2_0 = 0;
 											while(cont2_0<selector){
@@ -515,7 +515,7 @@ private static void change() {
 											lectura3_0.close();
 
 
-											File temp = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+											File temp = new File("tempUsuarios.txt");
 										
 										if (registros.delete() && temp.renameTo(registros)) {
 
@@ -536,7 +536,7 @@ private static void change() {
 
 											int horas = Integer.valueOf(sc3.nextLine());
 											int new_horas = 0;
-											FileWriter creator = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											FileWriter creator = new FileWriter("tempRegistros.txt");
 											Scanner lectura3_1 = new Scanner(registros);
 											int cont2_1 = 0;
 											while(cont2_1<selector){
@@ -557,7 +557,7 @@ private static void change() {
 											creator.close();
 											lectura3_1.close();
 
-											File temp_1 = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+											File temp_1 = new File("tempUsuarios.txt");
 										
 										if (registros.delete() && temp_1.renameTo(registros)) {
 
@@ -578,7 +578,7 @@ private static void change() {
 											System.out.println();
 											System.out.print("Actividad: ");
 											String actividad = sc3.nextLine();
-											FileWriter creat = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											FileWriter creat = new FileWriter("tempRegistros.txt");
 											Scanner lectura3 = new Scanner(registros);
 											int cont2 =0;
 											while(cont2<selector){
@@ -600,7 +600,7 @@ private static void change() {
 											creat.close();
 											lectura3.close();
 
-										File temp_2 = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										File temp_2 = new File("tempUsuarios.txt");
 										
 										if (registros.delete() && temp_2.renameTo(registros)) {
 
@@ -670,7 +670,7 @@ private static void change() {
 								if (contador <= 0) {
 									System.out.println("No se encontro la actividad");
 								} else if (contador == 1) {
-									FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+									FileWriter creador = new FileWriter("tempRegistros.txt");
 									Scanner lector = new Scanner(registros);
 
 									while (lector.hasNextLine()) {
@@ -691,7 +691,7 @@ private static void change() {
 									creador.close();
 									lector.close();
 
-									File tempRegistros = new File("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+									File tempRegistros = new File("tempRegistros.txt");
 
 									if (registros.delete() && tempRegistros.renameTo(registros)) {
 										System.out.println("Actividad eliminada con exito!");
@@ -705,7 +705,7 @@ private static void change() {
 										String actividadEliminar = sc.nextLine();
 
 
-										FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+										FileWriter creador = new FileWriter("tempRegistros.txt");
 									Scanner lector = new Scanner(registros);
 
 									while (lector.hasNextLine()) {
@@ -726,7 +726,7 @@ private static void change() {
 									creador.close();
 									lector.close();
 
-									File tempRegistros = new File("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+									File tempRegistros = new File("tempRegistros.txt");
 
 									if (registros.delete() && tempRegistros.renameTo(registros)) {
 										System.out.println("Actividad eliminada con exito!");
@@ -756,7 +756,7 @@ private static void change() {
 										String nuevaContra = sc.nextLine();
 
 										
-										FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										FileWriter creador = new FileWriter("tempUsuarios.txt");
 										
 										Scanner lector = new Scanner(usuarios);
 										
@@ -779,7 +779,7 @@ private static void change() {
 										creador.close();
 										lector.close();
 										
-										File temp = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										File temp = new File("tempUsuarios.txt");
 										
 										if (usuarios.delete() && temp.renameTo(usuarios)) {
 

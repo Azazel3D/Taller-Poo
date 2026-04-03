@@ -213,9 +213,9 @@ private static void change() {
 
 		int a = 0;
 
-        File usuarios = new File("**/Usuarios.txt");
+        File usuarios = new File("Usuarios.txt");
 
-        File registros = new File("**/Registros.txt");
+        File registros = new File("Registros.txt");
 
         Scanner sc = new Scanner(System.in);
 
@@ -268,7 +268,7 @@ private static void change() {
 							}
 						}
 						lector.close();
-						
+						break;
 						case 2:
 							menuTres();
 							Scanner key2 = new Scanner(System.in);

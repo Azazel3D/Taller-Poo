@@ -30,14 +30,192 @@ public class Main {
 		System.out.println("6) Salir.");
         System.out.print("> ");
 	}
+
+
+	private static void menuTres() {
+		System.out.println();
+		System.out.println("Bienvenido al menu de analisis!");
+		System.out.println();
+		System.out.println("Que desea realizar?");
+		System.out.println();
+		System.out.println("1) Actividad más realizada");
+		System.out.println("2) Actividad más realizada por cada usuario");
+		System.out.println("3) Usuario con mayor procastinacion");
+		System.out.println("4) Ver todas las actividades");
+		System.out.println("5) Salir");
+		System.out.print("> ");
+		
+	}
+	
+	private static void menuCuatro() {
+		System.out.println();
+		System.out.println("Que desea agregar?");
+		System.out.println();
+		System.out.print("fecha: ");
+		Scanner key = new Scanner(System.in);
+		String fecha = key.nextLine();
+		System.out.print("actividad: ");
+		String ac = key.nextLine();
+		System.out.println();
+		System.out.println("Actvidad agregada!");
+		
+		
+	}
+	
+	private static void menuCinco() {
+		
+		System.out.println();
+		System.out.println("Que desea eliminar?");
+		System.out.println();
+		
+		
+		
+	}
+	
+	private static void menuMod() {
+		
+		System.out.println();
+		System.out.println("Que actividad deseas modificar?");
+		Scanner llave = new Scanner(System.in);
+		System.out.print("> ");
+		int op = Integer.valueOf(llave.nextLine());
+		switch(op) {
+		case 0:
+			
+			
+			
+			break;
+		case 1:
+			
+			Mod();
+			
+			
+			
+			break;
+		case 2:
+			
+			Mod();
+			
+			
+			break;
+		case 3:
+			
+			
+			Mod();
+			
+			
+			break;
+		case 4:
+			
+			
+			Mod();
+			
+			break;
+		case 5:
+			
+			Mod();
+			
+			break;
+		case 6:
+			
+			Mod();
+			
+			break;
+		case 7:
+			
+			
+			Mod();
+			
+			break;
+		case 8:
+			
+			
+			
+			Mod();
+			
+			break;
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+private static void change() {
+		
+		Scanner key2 = new Scanner(System.in);
+		Scanner cambio = new Scanner(System.in);
+		int modificar = Integer.valueOf(key2.nextLine());
+		
+		switch(modificar) {
+		
+		case 0:
+			
+			
+			
+			break;
+			
+		case 1:
+			
+			System.out.print("Fecha: ");
+			String fecha = cambio.nextLine();
+			System.out.println();
+			
+			break;
+			
+			
+		case 2:
+			
+			System.out.print("Duracion: ");
+			int hora = Integer.valueOf(cambio.nextLine());
+			System.out.println();
+			
+			break;
+			
+			
+			
+		case 3:
+			
+			System.out.print("Actividad: ");
+			String activ = cambio.nextLine();
+			System.out.println();
+			
+			break;
+		
+		
+		}
+		
+		
+		
+	}
+	
+	private static void Mod() {
+		
+		System.out.println();
+		System.out.println("Que deseas modificar?");
+		System.out.println();
+		System.out.println("0) Regresar.");
+		System.out.println("1) Fecha");
+		System.out.println("2) Duracion");
+		System.out.println("3) Tipo de actividad");
+		System.out.print("> ");
+		
+		change();
+		
+		
+		
+	}
 	
     public static void main(String[] args) throws FileNotFoundException {
 
 		int a = 0;
 
-        File usuarios = new File("Taller-Poo/tallerFinal/src/archivos/Usuarios.txt");
+        File usuarios = new File("**/Usuarios.txt");
 
-        File registros = new File("Taller-Poo/tallerFinal/src/archivos/Registros.txt");
+        File registros = new File("**/Registros.txt");
 
         Scanner sc = new Scanner(System.in);
 
@@ -92,7 +270,42 @@ public class Main {
 						lector.close();
 						
 						case 2:
-							System.out.println("Primero inicie session");
+							menuTres();
+							Scanner key2 = new Scanner(System.in);
+							int op = Integer.valueOf(key2.nextLine());
+							System.out.println();
+
+							switch (op) {
+								case 1:
+									
+									break;
+							
+								case 2:
+
+
+									break;
+
+
+								case 3:
+									break;
+
+								case 4:
+									System.out.println("Todas las actividades");
+									System.out.println();
+									Scanner lector3 = new Scanner(registros);
+									while (lector3.hasNextLine()){
+										String line3 = lector3.nextLine();
+										System.out.println(line3);
+
+
+
+
+									}
+
+
+									break;
+
+							}
 
 							break;
 						
@@ -216,27 +429,205 @@ public class Main {
                         		int i=0;
                         		System.out.println("0) Regresar.");
                         				
-                        				
+                        		int cont=0;
                         		Scanner lector2 = new Scanner(registros);
-                        		while(lector2.hasNextLine()) {
+                        		while(cont<8) {
                         					
                         			String line2 = lector2.nextLine();
                         			String[] sep = line2.split(";");
                         					
                         			String id = sep[0];
-                        			String date = sep[1];
-                        			int horas = Integer.valueOf(sep[2]);
-                        			String actividad = sep[3];
+                        			
                         					
                         					
                         			if (id.equals(usuarioCorrecto)) {
                         						
                         				System.out.println((++i) + ") "+line2);
-                        						
+                        				cont++;
                         			}
-                        		}
-                        		System.out.println("Que deseas modificar?");
 
+
+
+                        		}
+
+								lector2.close();
+								Scanner sc3 = new Scanner(System.in);
+                        		
+                        		System.out.println();
+                        		System.out.print("> ");
+                        		int selector = Integer.valueOf(sc3.nextLine());
+                        		int cont1 = 0;
+                        		Scanner lector2_1 = new Scanner(registros);
+                        		
+                        		while (cont1<selector) {
+                        			
+                        			String line2_1 = lector2_1.nextLine();
+                        			String[] sep1 = line2_1.split(";");
+                        			String id = sep1[0];
+                        			if (id.equals(usuarioCorrecto)) {
+                        				
+                        				
+                        				cont1++;
+
+
+										if (cont1==selector){
+
+											System.out.println();
+                        			System.out.println("Que deseas modificar?");
+                        			System.out.println();
+                        			System.out.println("1) Fecha");
+                        			System.out.println("2) Duracion");
+                        			System.out.println("3) Actividad");
+                        			System.out.print("> ");
+                        			int key1 = Integer.valueOf(sc3.nextLine());
+									
+									switch (key1) {
+										case 1:
+											String new_date = "";
+											System.out.println();
+											System.out.print("nueva fecha: ");
+
+											String fecha = sc3.nextLine();
+
+											FileWriter creador = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											Scanner lectura3_0 = new Scanner(registros);
+											int cont2_0 = 0;
+											while(cont2_0<selector){
+												String line3 = lectura3_0.nextLine();
+												String[] sep2 = line3.split(";");
+
+												if (sep2[0].equals(usuarioCorrecto)){
+													creador.write(sep2[0]+";"+fecha+";"+sep2[2]+";"+sep2[3]);
+												} else {
+												creador.write(line3);
+												}
+											
+												if (lectura3_0.hasNextLine()) {
+													creador.write("\n");
+												}
+												cont2_0++;
+											}
+
+
+
+
+											creador.close();
+											lectura3_0.close();
+
+
+											File temp = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										
+										if (registros.delete() && temp.renameTo(registros)) {
+
+											System.out.println("Fecha cambiada con exito!");
+											new_date = fecha;
+											
+
+										} else {
+
+											System.out.println("Error al actualizar la contraseña.");
+										}
+											break;
+								
+										case 2:
+
+											System.out.println();
+											System.out.print("Duracion: ");
+
+											int horas = Integer.valueOf(sc3.nextLine());
+											int new_horas = 0;
+											FileWriter creator = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											Scanner lectura3_1 = new Scanner(registros);
+											int cont2_1 = 0;
+											while(cont2_1<selector){
+												String line3_1 = lectura3_1.nextLine();
+												String[] sep2 = line3_1.split(";");
+
+												if (sep2[0].equals(usuarioCorrecto)){
+													creator.write(sep2[0]+";"+sep2[1]+";"+horas+";"+sep2[3]);
+												} else {
+												creator.write(line3_1);
+											}
+											
+											if (lectura3_1.hasNextLine()) {
+												creator.write("\n");
+											}
+												cont2_1++;
+											}
+											creator.close();
+											lectura3_1.close();
+
+											File temp_1 = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										
+										if (registros.delete() && temp_1.renameTo(registros)) {
+
+											System.out.println("Hora(s) cambiada con exito!");
+											new_horas = horas;
+											
+
+										} else {
+
+											System.out.println("Error al actualizar la contraseña.");
+										}
+
+
+											break;
+
+										case 3:
+											String new_activity="";
+											System.out.println();
+											System.out.print("Actividad: ");
+											String actividad = sc3.nextLine();
+											FileWriter creat = new FileWriter("Taller-Poo/tallerFinal/src/archivos/tempRegistros.txt");
+											Scanner lectura3 = new Scanner(registros);
+											int cont2 =0;
+											while(cont2<selector){
+												String line3 = lectura3.nextLine();
+												String[] sep2 = line3.split(";");
+
+												if (sep2[0].equals(usuarioCorrecto)){
+													creat.write(sep2[0]+";"+sep2[1]+";"+sep2[2]+";"+actividad);
+												} else {
+													creat.write(line3);
+												}
+											
+												if (lectura3.hasNextLine()) {
+													creat.write("\n");
+												}
+												cont2++;
+											}
+
+											creat.close();
+											lectura3.close();
+
+										File temp_2 = new File("Taller-Poo/tallerFinal/src/archivos/tempUsuarios.txt");
+										
+										if (registros.delete() && temp_2.renameTo(registros)) {
+
+											System.out.println("Actividad cambiada con exito!");
+											new_activity = actividad;
+											
+
+										} else {
+
+											System.out.println("Error al actualizar la contraseña.");
+										}
+
+
+
+											break;
+
+											}
+
+										}
+                        			}
+                        			
+                        			
+                        		}
+                        		
+                        		
+                        		
+								lector2_1.close();
 								break;
 							
 							case 3: //eliminar actividad

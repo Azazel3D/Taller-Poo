@@ -574,7 +574,7 @@ private static void change() {
 											break;
 
 										case 3:
-											
+											String new_activity="";
 											System.out.println();
 											System.out.print("Actividad: ");
 											String actividad = sc3.nextLine();
@@ -605,6 +605,7 @@ private static void change() {
 										if (registros.delete() && temp_2.renameTo(registros)) {
 
 											System.out.println("Actividad cambiada con exito!");
+											new_activity = actividad;
 											
 
 										} else {
